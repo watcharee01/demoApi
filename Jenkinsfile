@@ -38,7 +38,7 @@ pipeline {
                     sh "docker service update --image ${env.imageName} demoapi"
                     sh "echo update service"
                   } catch (e){
-                    sh "docker service create --name demoapi -p 3030:80 ${env.imageName}"
+                    sh "docker service create --name demoapi -p 3030:3000 ${env.imageName}"
                     sh "echo create service"
                   }
               }
