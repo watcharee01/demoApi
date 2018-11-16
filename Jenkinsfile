@@ -1,7 +1,7 @@
 pipeline {
     agent none
     environment {
-        imageName = 'watcharee01/demoApi'
+        imageName = 'watcharee01/demoapi'
         port = 3030
     }
     
@@ -35,10 +35,10 @@ pipeline {
           steps {
               script {
                   try {
-                    sh "docker service update --image ${env.imageName} demo"
+                    sh "docker service update --image ${env.imageName} demoapi"
                     sh "echo update service"
                   } catch (e){
-                    sh "docker service create --name demo -p 3030:3000 ${env.imageName}"
+                    sh "docker service create --name demoapi -p 3030:80 ${env.imageName}"
                     sh "echo create service"
                   }
               }
